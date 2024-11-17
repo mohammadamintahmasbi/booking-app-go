@@ -10,10 +10,18 @@ func main(){
 
 	fmt.Println("Welcome to booking ", conferenceName, "app !")
 	fmt.Printf("< %v ticket has planed for this conference and %v is available >", ticketNumber, remainedTicket)
-	var userName string
+	var firstName string
+	var lastName string
+	var email string
 
-	fmt.Println(userName)
+	fmt.Scan(&firstName)
+	fmt.Scan(&lastName)
+	fmt.Scan(&email)
+
+	fmt.Printf("< Thanks for booking a ticket %v %v .The confirmation email will send to %v >", firstName, lastName, email)
+
+	fmt.Println(firstName)
 	// you can define a variable and get a type to it and then get value to it when you want this you should define variable with type like line 13
-	userName = "Username"
+	firstName = "Username"
 
 }

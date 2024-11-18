@@ -8,6 +8,10 @@ func main(){
 	// define a variable with := it will understand that its a var and get its type from the value we get to it
 	remainedTicket := 50 
 
+	var array [50]string
+
+	var slice []string
+
 	fmt.Println("Welcome to booking ", conferenceName, "app !")
 	fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
 	var firstName string
@@ -20,6 +24,12 @@ func main(){
 	fmt.Scan(&lastName)
 	fmt.Println("Please Enter your email: ")
 	fmt.Scan(&email)
+	array[0] = firstName
+	slice = append(slice, firstName + " " + lastName)
+
+	fmt.Printf("This is the array value : %v\n", array)
+
+	fmt.Printf("This is the slice value : %v\n", slice)
 
 	fmt.Printf("< Thanks for booking a ticket %v %v .The confirmation email will send to %v >", firstName, lastName, email)
 

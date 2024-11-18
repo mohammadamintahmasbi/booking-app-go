@@ -7,10 +7,11 @@ func main(){
 	const ticketNumber = 50
 	// define a variable with := it will understand that its a var and get its type from the value we get to it
 	remainedTicket := 50 
-
+	//define the array with fix length
 	var array [50]string
-
+	// define a slice; slice is like a list in python in some parts :o
 	var slice []string
+	// there is an alternative syntax for slice definition : slice := []string
 
 	fmt.Println("Welcome to booking ", conferenceName, "app !")
 	fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
@@ -24,7 +25,10 @@ func main(){
 	fmt.Scan(&lastName)
 	fmt.Println("Please Enter your email: ")
 	fmt.Scan(&email)
+	// you give a value to array like this
 	array[0] = firstName
+	// this is an append function like in python , ofcourse it's not in a class and not handel with "." but it do the same thing
+	// its interesting that the go compiler recommend this syntax to you
 	slice = append(slice, firstName + " " + lastName)
 
 	fmt.Printf("This is the array value : %v\n", array)

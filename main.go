@@ -18,7 +18,6 @@ func main(){
 	var firstName string
 	var lastName string
 	var email string
-	var input string
 
 	fmt.Println("Please Enter your firstname: ")
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
@@ -34,9 +33,20 @@ func main(){
 	slice = append(slice, firstName + " " + lastName)
 	// different types of loop syntax in go
 	for i := 0; i<= 5; i++{
-		fmt.Scan(&input)
-		slice = append(slice, input)
+	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
+		fmt.Println("Please Enter your firstname: ")
+		fmt.Scan(&firstName)
+		fmt.Println("Please Enter your lastname: ")
+		fmt.Scan(&lastName)
+		fmt.Println("Please Enter your email: ")
+		fmt.Scan(&email)
+		slice = append(slice, firstName + " " + lastName)
 	}
+	x := 2
+	for x < 100{
+		x = x*2
+		fmt.Println(x)
+	}	
 
 	fmt.Printf("This is the array value : %v\n", array)
 

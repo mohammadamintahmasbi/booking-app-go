@@ -46,7 +46,15 @@ func main(){
 	for x < 100{
 		x = x*2
 		fmt.Println(x)
-	}	
+	}
+	var status bool
+	status = true
+
+	for status == true{
+		fmt.Println("True")
+		status = false
+	}
+
 
 	fmt.Printf("This is the array value : %v\n", array)
 

@@ -32,7 +32,6 @@ func main(){
 	slice = append(slice, firstName + " " + lastName)
 	// different types of loop syntax in go
 	for remainedTicket != 0 {
-		
 		fmt.Println("Welcome to booking ", conferenceName, "app !")
 		fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
 		// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
@@ -44,6 +43,7 @@ func main(){
 		fmt.Scan(&email)
 		fmt.Println("How much ticket do you want ?")
 		fmt.Scan(&number_of_booking_ticket)
+		
 		if number_of_booking_ticket <= remainedTicket{
 			slice = append(slice, firstName + " " + lastName + " " + email)
 			remainedTicket = remainedTicket - number_of_booking_ticket	

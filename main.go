@@ -6,7 +6,7 @@ func main(){
 	var conferenceName = "GO-LANG Conference"
 	const ticketNumber = 50
 	// define a variable with := it will understand that its a var and get its type from the value we get to it
-	remainedTicket := 50 
+	remainedTicket := 50
 	//define the array with fix length
 	var array [50]string
 	// define a slice; slice is like a list in python in some parts :o
@@ -18,6 +18,7 @@ func main(){
 	var firstName string
 	var lastName string
 	var email string
+	var number_of_booking_ticket int
 
 	fmt.Println("Please Enter your firstname: ")
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
@@ -32,7 +33,7 @@ func main(){
 	// its interesting that the go compiler recommend this syntax to you
 	slice = append(slice, firstName + " " + lastName)
 	// different types of loop syntax in go
-	for i := 0; i<= 5; i++{
+	for remainedTicket != 0 {
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
 		fmt.Println("Please Enter your firstname: ")
 		fmt.Scan(&firstName)
@@ -40,23 +41,17 @@ func main(){
 		fmt.Scan(&lastName)
 		fmt.Println("Please Enter your email: ")
 		fmt.Scan(&email)
-		slice = append(slice, firstName + " " + lastName)
-	}
-	x := 2
-	for x < 100{
-		x = x*2
-		fmt.Println(x)
-	}
-	var status bool
-	status = true
-
-	for status == true{
-		fmt.Println("True")
-		status = false
+		fmt.Println("How much ticket do you want ?")
+		fmt.Scan(&number_of_booking_ticket)
+		if number_of_booking_ticket <= remainedTicket{
+			slice = append(slice, firstName + " " + lastName + " " + email)
+			remainedTicket = remainedTicket - number_of_booking_ticket	
+		}else {
+			fmt.Println("You want to book tickets more than we have")
+		}
 	}
 
-
-	fmt.Printf("This is the array value : %v\n", array)
+	fmt.Printf("This is the booking value : %v\n", array)
 
 	fmt.Printf("This is the slice value : %v\n", slice)
 

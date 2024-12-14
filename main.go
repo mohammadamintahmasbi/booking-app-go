@@ -20,13 +20,13 @@ func main(){
 	var email string
 	var number_of_booking_ticket int
 
-	fmt.Println("Please Enter your firstname: ")
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
-	fmt.Scan(&firstName)
-	fmt.Println("Please Enter your lastname: ")
-	fmt.Scan(&lastName)
-	fmt.Println("Please Enter your email: ")
-	fmt.Scan(&email)
+	// fmt.Println("Please Enter your firstname: ")
+	// fmt.Scan(&firstName)
+	// fmt.Println("Please Enter your lastname: ")
+	// fmt.Scan(&lastName)
+	// fmt.Println("Please Enter your email: ")
+	// fmt.Scan(&email)
 	// you give a value to array like this
 	array[0] = firstName
 	// this is an append function like in python , ofcourse it's not in a class and not handel with "." but it do the same thing

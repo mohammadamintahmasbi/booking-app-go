@@ -13,8 +13,6 @@ func main(){
 	var slice []string
 	// there is an alternative syntax for slice definition : slice := []string
 
-	fmt.Println("Welcome to booking ", conferenceName, "app !")
-	fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
 	var firstName string
 	var lastName string
 	var email string
@@ -34,7 +32,10 @@ func main(){
 	slice = append(slice, firstName + " " + lastName)
 	// different types of loop syntax in go
 	for remainedTicket != 0 {
-	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
+		
+		fmt.Println("Welcome to booking ", conferenceName, "app !")
+		fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
+		// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
 		fmt.Println("Please Enter your firstname: ")
 		fmt.Scan(&firstName)
 		fmt.Println("Please Enter your lastname: ")

@@ -49,10 +49,18 @@ func main(){
 		fmt.Scan(&number_of_booking_ticket)
 
 		isValidName := len(firstName) > 2 && len(lastName) >2
-		isValidEmail := strings.Contains("@", email)
+		isValidEmail := strings.Contains(email, "@")
 		isValidTicketNumber := number_of_booking_ticket > 0 && remainedTicket != 0
-	
+
+		fmt.Println(isValidName)
+		fmt.Println(isValidEmail)
+		fmt.Println(isValidTicketNumber)
+
 		if isValidName && isValidEmail && isValidTicketNumber{
+			fmt.Println(isValidName)
+			fmt.Println(isValidEmail)
+			fmt.Println(isValidTicketNumber)
+	
 			if number_of_booking_ticket <= remainedTicket{
 				slice = append(slice, firstName + " " + lastName + " " + email)
 				remainedTicket = remainedTicket - number_of_booking_ticket	

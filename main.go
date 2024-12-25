@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main(){
 	var conferenceName = "GO-LANG Conference"
@@ -31,6 +34,7 @@ func main(){
 	// its interesting that the go compiler recommend this syntax to you
 	slice = append(slice, firstName + " " + lastName)
 	// different types of loop syntax in go
+
 	for remainedTicket != 0 {
 		fmt.Println("Welcome to booking ", conferenceName, "app !")
 		fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
@@ -43,13 +47,20 @@ func main(){
 		fmt.Scan(&email)
 		fmt.Println("How much ticket do you want ?")
 		fmt.Scan(&number_of_booking_ticket)
-		
-		if number_of_booking_ticket <= remainedTicket{
-			slice = append(slice, firstName + " " + lastName + " " + email)
-			remainedTicket = remainedTicket - number_of_booking_ticket	
-		}else {
-			fmt.Println("You want to book tickets more than we have")
+
+		isValidName := len(firstName) > 2 && len(lastName) >2
+		isValidEmail := strings.Contains("@", email)
+		isValidTicketNumber := number_of_booking_ticket > 0 && remainedTicket != 0
+	
+		if isValidName && isValidEmail && isValidTicketNumber{
+			if number_of_booking_ticket <= remainedTicket{
+				slice = append(slice, firstName + " " + lastName + " " + email)
+				remainedTicket = remainedTicket - number_of_booking_ticket	
+			}else {
+				fmt.Println("You want to book tickets more than we have")
+			}
 		}
+
 	}
 
 	fmt.Printf("This is the booking value : %v\n", array)

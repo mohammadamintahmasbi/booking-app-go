@@ -67,6 +67,16 @@ func main(){
 			}else {
 				fmt.Println("You want to book tickets more than we have")
 			}
+		}else{
+			if !isValidName{
+				fmt.Println("< Your firstname and lastname must be more than 2 charecters >")
+			}
+			if !isValidEmail{
+				fmt.Println("< Your email must contains @ sign >")
+			}
+			if !isValidTicketNumber{
+				fmt.Println("< Your Enter invalid ticket number >")
+			}
 		}
 
 	}

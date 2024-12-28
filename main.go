@@ -21,7 +21,7 @@ func main(){
 	var email string
 	var number_of_booking_ticket int
 
-	greeting(conferenceName, ticketNumber, remainedTicket)
+
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
 	// fmt.Println("Please Enter your firstname: ")
 	// fmt.Scan(&firstName)
@@ -37,7 +37,8 @@ func main(){
 	// different types of loop syntax in go
 
 	for remainedTicket != 0 {
-		getUserInput(firstName, lastName, email, number_of_booking_ticket)
+		greeting(conferenceName, ticketNumber, remainedTicket)
+		firstName, lastName, email, number_of_booking_ticket = getUserInput(firstName, lastName, email, number_of_booking_ticket)
 		// for assigning the output of a function if the variable did not define you should assign and define at the same time with :=
 		// if you defined it before so you can assign it with "="
 		isValidName, isValidEmail, isValidTicketNumber := inputValidation(
@@ -47,15 +48,8 @@ func main(){
 			number_of_booking_ticket,
 			remainedTicket)
 
-		fmt.Println(isValidName)
-		fmt.Println(isValidEmail)
-		fmt.Println(isValidTicketNumber)
-
 		if isValidName && isValidEmail && isValidTicketNumber{
-			fmt.Println(isValidName)
-			fmt.Println(isValidEmail)
-			fmt.Println(isValidTicketNumber)
-	
+
 			if number_of_booking_ticket <= remainedTicket{
 				slice = append(slice, firstName + " " + lastName + " " + email)
 				remainedTicket = remainedTicket - number_of_booking_ticket	
@@ -75,13 +69,8 @@ func main(){
 		}
 
 	}
-
-	fmt.Printf("This is the booking value : %v\n", array)
-
-	fmt.Printf("This is the slice value : %v\n", slice)
-
-	fmt.Printf("< Thanks for booking a ticket %v %v .The confirmation email will send to %v >", firstName, lastName, email)
-
+	fmt.Println("----------------------------------------------------------------------")
+	bookingResult(array, slice, firstName, lastName, email)
 	// you can define a variable and get a type to it and then get value to it when you want this you should define variable with type like line 13
 
 }
@@ -118,4 +107,11 @@ func inputValidation(
 	isValidTicketNumber := number_of_booking_ticket > 0 && remainedTicket != 0
 	
 	return isValidName, isValidEmail, isValidTicketNumber
+}
+
+func bookingResult(array [50]string, slice []string, firstName string, lastName string, email string){
+	fmt.Printf("This is the booking value : %v\n", array) // array is empty. I didnot assign any thing to it.
+
+	fmt.Printf("This is the slice value : %v\n", slice)
+
 }

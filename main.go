@@ -38,7 +38,8 @@ func main(){
 
 	for remainedTicket != 0 {
 		getUserInput(firstName, lastName, email, number_of_booking_ticket)
-		// comment needed
+		// for assigning the output of a function if the variable did not define you should assign and define at the same time with :=
+		// if you defined it before so you can assign it with "="
 		isValidName, isValidEmail, isValidTicketNumber := inputValidation(
 			firstName,
 			lastName,

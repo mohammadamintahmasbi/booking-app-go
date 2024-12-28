@@ -38,10 +38,13 @@ func main(){
 
 	for remainedTicket != 0 {
 		getUserInput(firstName, lastName, email, number_of_booking_ticket)
-
-		isValidName := len(firstName) > 2 && len(lastName) >2
-		isValidEmail := strings.Contains(email, "@")
-		isValidTicketNumber := number_of_booking_ticket > 0 && remainedTicket != 0
+		// comment needed
+		isValidName, isValidEmail, isValidTicketNumber := inputValidation(
+			firstName,
+			lastName,
+			email,
+			number_of_booking_ticket,
+			remainedTicket)
 
 		fmt.Println(isValidName)
 		fmt.Println(isValidEmail)
@@ -100,4 +103,18 @@ func getUserInput(firstName string, lastName string, email string, number_of_boo
 	fmt.Scan(&number_of_booking_ticket)
 	
 	return firstName, lastName, email, number_of_booking_ticket
+}
+
+func inputValidation(
+	firstName string,
+	lastName string,
+	email string,
+	number_of_booking_ticket int,
+	remainedTicket int)(bool, bool, bool){
+
+	isValidName := len(firstName) > 2 && len(lastName) >2
+	isValidEmail := strings.Contains(email, "@")
+	isValidTicketNumber := number_of_booking_ticket > 0 && remainedTicket != 0
+	
+	return isValidName, isValidEmail, isValidTicketNumber
 }

@@ -21,6 +21,7 @@ func main(){
 	var email string
 	var number_of_booking_ticket int
 
+	greeting(conferenceName, ticketNumber, remainedTicket)
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
 	// fmt.Println("Please Enter your firstname: ")
 	// fmt.Scan(&firstName)
@@ -36,17 +37,7 @@ func main(){
 	// different types of loop syntax in go
 
 	for remainedTicket != 0 {
-		fmt.Println("Welcome to booking ", conferenceName, "app !")
-		fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
-		// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
-		fmt.Println("Please Enter your firstname: ")
-		fmt.Scan(&firstName)
-		fmt.Println("Please Enter your lastname: ")
-		fmt.Scan(&lastName)
-		fmt.Println("Please Enter your email: ")
-		fmt.Scan(&email)
-		fmt.Println("How much ticket do you want ?")
-		fmt.Scan(&number_of_booking_ticket)
+		getUserInput(firstName, lastName, email, number_of_booking_ticket)
 
 		isValidName := len(firstName) > 2 && len(lastName) >2
 		isValidEmail := strings.Contains(email, "@")
@@ -89,4 +80,24 @@ func main(){
 
 	// you can define a variable and get a type to it and then get value to it when you want this you should define variable with type like line 13
 
+}
+
+//super-simple function
+func greeting(conferenceName string, ticketNumber int, remainedTicket int){
+	fmt.Println("Welcome to booking ", conferenceName, "app !")
+	fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
+}
+//super-simple function with multi-return value
+func getUserInput(firstName string, lastName string, email string, number_of_booking_ticket int)(string, string, string, int){
+	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable
+	fmt.Println("Please Enter your firstname: ")
+	fmt.Scan(&firstName)
+	fmt.Println("Please Enter your lastname: ")
+	fmt.Scan(&lastName)
+	fmt.Println("Please Enter your email: ")
+	fmt.Scan(&email)
+	fmt.Println("How much ticket do you want ?")
+	fmt.Scan(&number_of_booking_ticket)
+	
+	return firstName, lastName, email, number_of_booking_ticket
 }

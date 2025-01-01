@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"booking-app/helper" // when you create a new package you can add it like this with the module name;
 )
 
 func main(){
@@ -37,7 +38,7 @@ func main(){
 	// different types of loop syntax in go
 
 	for remainedTicket != 0 {
-		greeting(conferenceName, ticketNumber, remainedTicket)
+		helper.Greeting(conferenceName, ticketNumber, remainedTicket)
 		firstName, lastName, email, number_of_booking_ticket = getUserInput(firstName, lastName, email, number_of_booking_ticket)
 		// for assigning the output of a function if the variable did not define you should assign and define at the same time with :=
 		// if you defined it before so you can assign it with "="

@@ -38,6 +38,7 @@ func main(){
 	// different types of loop syntax in go
 
 	for remainedTicket != 0 {
+		//import from helper package :)
 		helper.Greeting(conferenceName, ticketNumber, remainedTicket)
 		firstName, lastName, email, number_of_booking_ticket = getUserInput(firstName, lastName, email, number_of_booking_ticket)
 		// for assigning the output of a function if the variable did not define you should assign and define at the same time with :=

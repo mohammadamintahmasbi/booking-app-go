@@ -75,11 +75,6 @@ func main(){
 
 }
 
-//super-simple function
-func greeting(conferenceName string, ticketNumber int, remainedTicket int){
-	fmt.Println("Welcome to booking ", conferenceName, "app !")
-	fmt.Printf("< %v ticket has planed for this conference and %v is available >\n", ticketNumber, remainedTicket)
-}
 //super-simple function with multi-return value
 func getUserInput(firstName string, lastName string, email string, number_of_booking_ticket int)(string, string, string, int){
 	// in golang you get the input with Scan function like java :) ; also you should user pointer to access to the variable

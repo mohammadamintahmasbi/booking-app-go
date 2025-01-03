@@ -15,7 +15,7 @@ func main(){
 	//define the array with fix length
 	var array [50]string
 	// define a slice; slice is like a list in python in some parts :o
-	var slice []map[string]string
+	var slice []map[string]string //slice with a map as its elements
 	
 	// there is an alternative syntax for slice definition : slice := []string
 
@@ -56,6 +56,7 @@ func main(){
 		if isValidName && isValidEmail && isValidTicketNumber{
 
 			if number_of_booking_ticket <= remainedTicket{
+				// map, access to value with a keys. in map you can have one combination of type as key and value.
 				var userData = make(map[string]string)
 				userData["firstname"] = firstName
 				userData["lastname"] = lastName

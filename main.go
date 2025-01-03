@@ -4,6 +4,7 @@ import (
 	"booking-app/helper" // when you create a new package you can add it like this with the module name;
 	"fmt"
 	"strings"
+	"sync"
 	"time"
 	// "strconv" //use for type casting
 )
@@ -13,6 +14,8 @@ type User struct {
 	email string
 	number_of_booking_ticket int
 }
+
+var wg = sync.WaitGroup{}
 
 func main(){
 	var conferenceName = "GO-LANG Conference"
@@ -83,7 +86,10 @@ func main(){
 				//***************************************
 				slice = append(slice, user)
 				remainedTicket = remainedTicket - number_of_booking_ticket
-				sendEmail(user.firstName, user.email)
+				// create new thread "goroutine" with just a keyword 'go' :)
+				wg.Add(1)
+				go sendEmail(user.firstName, user.email)
+
 			}else {
 				fmt.Println("You want to book tickets more than we have")
 			}
@@ -100,6 +106,7 @@ func main(){
 		}
 
 	}
+	wg.Wait()
 	fmt.Println("----------------------------------------------------------------------")
 	bookingResult(array, slice, firstName, lastName, email)
 	// you can define a variable and get a type to it and then get value to it when you want this you should define variable with type like line 13
@@ -146,4 +153,5 @@ func sendEmail(firstName string, email string){
 	time.Sleep(20*time.Second)
 	sendingMessage := fmt.Sprintf("Ticket send for %v in email %v", firstName, email)
 	fmt.Println(sendingMessage)
+	wg.Done()
 }

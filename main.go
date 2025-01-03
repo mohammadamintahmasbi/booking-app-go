@@ -151,7 +151,9 @@ func bookingResult(array [50]string, slice []User, firstName string, lastName st
 
 func sendEmail(firstName string, email string){
 	time.Sleep(20*time.Second)
+	fmt.Println("########################################")
 	sendingMessage := fmt.Sprintf("Ticket send for %v in email %v", firstName, email)
 	fmt.Println(sendingMessage)
+	fmt.Println("########################################")
 	wg.Done()
 }

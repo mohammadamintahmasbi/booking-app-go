@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"strconv"
 	"booking-app/helper" // when you create a new package you can add it like this with the module name;
 )
 
@@ -14,7 +15,8 @@ func main(){
 	//define the array with fix length
 	var array [50]string
 	// define a slice; slice is like a list in python in some parts :o
-	var slice []string
+	var slice []map[string]string
+	
 	// there is an alternative syntax for slice definition : slice := []string
 
 	var firstName string
@@ -34,7 +36,8 @@ func main(){
 	array[0] = firstName
 	// this is an append function like in python , ofcourse it's not in a class and not handel with "." but it do the same thing
 	// its interesting that the go compiler recommend this syntax to you
-	slice = append(slice, firstName + " " + lastName)
+	// slice = append(slice, firstName + " " + lastName)
+
 	// different types of loop syntax in go
 
 	for remainedTicket != 0 {
@@ -53,8 +56,13 @@ func main(){
 		if isValidName && isValidEmail && isValidTicketNumber{
 
 			if number_of_booking_ticket <= remainedTicket{
-				slice = append(slice, firstName + " " + lastName + " " + email)
-				remainedTicket = remainedTicket - number_of_booking_ticket	
+				var userData = make(map[string]string)
+				userData["firstname"] = firstName
+				userData["lastname"] = lastName
+				userData["email"] = email
+				userData["number_of_booking_ticket"] = strconv.Itoa(number_of_booking_ticket)
+				slice = append(slice, userData)
+				remainedTicket = remainedTicket - number_of_booking_ticket
 			}else {
 				fmt.Println("You want to book tickets more than we have")
 			}
@@ -106,7 +114,7 @@ func inputValidation(
 	return isValidName, isValidEmail, isValidTicketNumber
 }
 
-func bookingResult(array [50]string, slice []string, firstName string, lastName string, email string){
+func bookingResult(array [50]string, slice []map[string]string, firstName string, lastName string, email string){
 	fmt.Printf("This is the booking value : %v\n", array) // array is empty. I didnot assign any thing to it.
 
 	fmt.Printf("This is the slice value : %v\n", slice)

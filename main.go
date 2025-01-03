@@ -1,9 +1,10 @@
 package main
 
 import (
+	"booking-app/helper" // when you create a new package you can add it like this with the module name;
 	"fmt"
 	"strings"
-	"booking-app/helper" // when you create a new package you can add it like this with the module name;
+	"time"
 	// "strconv" //use for type casting
 )
 type User struct {
@@ -82,6 +83,7 @@ func main(){
 				//***************************************
 				slice = append(slice, user)
 				remainedTicket = remainedTicket - number_of_booking_ticket
+				sendEmail(user.firstName, user.email)
 			}else {
 				fmt.Println("You want to book tickets more than we have")
 			}
@@ -138,4 +140,10 @@ func bookingResult(array [50]string, slice []User, firstName string, lastName st
 
 	fmt.Printf("This is the slice value : %v\n", slice)
 
+}
+
+func sendEmail(firstName string, email string){
+	time.Sleep(20*time.Second)
+	sendingMessage := fmt.Sprintf("Ticket send for %v in email %v", firstName, email)
+	fmt.Println(sendingMessage)
 }

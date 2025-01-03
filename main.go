@@ -3,9 +3,15 @@ package main
 import (
 	"fmt"
 	"strings"
-	"strconv"
 	"booking-app/helper" // when you create a new package you can add it like this with the module name;
+	// "strconv" //use for type casting
 )
+type User struct {
+	firstName string
+	lastName string
+	email string
+	number_of_booking_ticket int
+}
 
 func main(){
 	var conferenceName = "GO-LANG Conference"
@@ -15,7 +21,10 @@ func main(){
 	//define the array with fix length
 	var array [50]string
 	// define a slice; slice is like a list in python in some parts :o
-	var slice []map[string]string //slice with a map as its elements
+	var slice []User
+	// *********************************
+	// var slice []map[string]string //slice with a map as its elements
+	// *********************************
 	
 	// there is an alternative syntax for slice definition : slice := []string
 
@@ -56,13 +65,22 @@ func main(){
 		if isValidName && isValidEmail && isValidTicketNumber{
 
 			if number_of_booking_ticket <= remainedTicket{
+				var user = User{
+					firstName: firstName,
+					lastName: lastName,
+					email: email,
+					number_of_booking_ticket: number_of_booking_ticket,
+				}
+				//***************************************
 				// map, access to value with a keys. in map you can have one combination of type as key and value.
-				var userData = make(map[string]string)
-				userData["firstname"] = firstName
-				userData["lastname"] = lastName
-				userData["email"] = email
-				userData["number_of_booking_ticket"] = strconv.Itoa(number_of_booking_ticket)
-				slice = append(slice, userData)
+				// var userData = make(map[string]string)
+
+				// userData["firstname"] = firstName
+				// userData["lastname"] = lastName
+				// userData["email"] = email
+				// userData["number_of_booking_ticket"] = strconv.Itoa(number_of_booking_ticket) // type casting
+				//***************************************
+				slice = append(slice, user)
 				remainedTicket = remainedTicket - number_of_booking_ticket
 			}else {
 				fmt.Println("You want to book tickets more than we have")
@@ -115,7 +133,7 @@ func inputValidation(
 	return isValidName, isValidEmail, isValidTicketNumber
 }
 
-func bookingResult(array [50]string, slice []map[string]string, firstName string, lastName string, email string){
+func bookingResult(array [50]string, slice []User, firstName string, lastName string, email string){
 	fmt.Printf("This is the booking value : %v\n", array) // array is empty. I didnot assign any thing to it.
 
 	fmt.Printf("This is the slice value : %v\n", slice)

@@ -18,7 +18,7 @@ type User struct {
 var wg = sync.WaitGroup{}
 
 func main(){
-	var conferenceName = "GO-LANG Conference"
+	const conferenceName = "GO-LANG Conference"
 	const ticketNumber = 50
 	// define a variable with := it will understand that its a var and get its type from the value we get to it
 	remainedTicket := 50

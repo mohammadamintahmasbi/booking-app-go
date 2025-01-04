@@ -1,3 +1,3 @@
 # booking-app-go
-simple go project :)/
+simple go project :)\
 super simple project for learning a basics of GO.
